@@ -1,4 +1,4 @@
-package sample;
+package sample.Field;
 
 public class GameStage {
 }
