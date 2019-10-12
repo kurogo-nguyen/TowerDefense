@@ -1,4 +1,4 @@
 package sample;
 
-public class GameEntity {
+public interface GameEntity {
 }

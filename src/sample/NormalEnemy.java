@@ -1,4 +1,4 @@
 package sample;
 
-public class NormalEnemy extends Enemy {
+public class NormalEnemy implements Enemy {
 }

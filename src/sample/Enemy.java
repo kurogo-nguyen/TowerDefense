@@ -1,7 +1,7 @@
 package sample;
 
-public abstract class Enemy {
-    private int heath;
-    private int moveSpeed;
-    private int armor;
+public interface Enemy extends GameEntity{
+//    int heath;
+//    int moveSpeed;
+//    int armor;
 }
