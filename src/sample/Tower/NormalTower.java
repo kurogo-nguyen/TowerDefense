@@ -1,4 +1,7 @@
-package sample;
+package sample.Tower;
+
+import sample.Tower.Bullet;
+import sample.Tower.Tower;
 
 public class NormalTower implements Tower, Bullet {
     private final int rateOfFire = 10;

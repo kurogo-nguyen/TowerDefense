@@ -1,4 +1,6 @@
-package sample;
+package sample.Field;
+
+import sample.GameEntity;
 
 import java.util.ArrayList;
 import java.util.List;

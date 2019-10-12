@@ -1,4 +1,4 @@
-package sample;
+package sample.Enemy;
 
 public class TankerEnemy implements Enemy {
 }
