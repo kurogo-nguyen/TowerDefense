@@ -1,5 +1,4 @@
 package sample;
 
-public interface GameTile {
-
+public interface GameTile extends GameEntity{
 }
