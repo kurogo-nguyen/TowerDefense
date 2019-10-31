@@ -10,20 +10,17 @@ public class NormalTower implements Tower, Bullet {
     private final int shootingRange = 10;
     private int x=0;
     private int y=0;
-    private final Image image = new Image("towerSquare_sampleA_E.png");
+    private final Image image = new Image("towerSquare_sampleA_E.png", 100, 100, false, false);
 
     public NormalTower() {
     }
 
-    public Canvas draw() {
-        Canvas canvas = new Canvas(500, 500);
-        GraphicsContext gc = canvas.getGraphicsContext2D();
-        // Draw the Image
-        gc.drawImage(image, getPosX(), getPosY());
-        canvas.setScaleX(0.2);
-
-        return canvas;
-    }
+//    public Canvas draw() {
+//        Canvas canvas = new Canvas(100, 100);
+//        GraphicsContext gc = canvas.getGraphicsContext2D();
+//        gc.drawImage(image, getPosX(), getPosY());
+//        return canvas;
+//    }
 
     public int getRateOfFire() {
         return rateOfFire;
@@ -37,13 +34,13 @@ public class NormalTower implements Tower, Bullet {
         return shootingRange;
     }
 
-    @Override
-    public int getPosX() {
-        return x;
-    }
-
-    @Override
-    public int getPosY() {
-        return y;
-    }
+//    @Override
+//    public int getPosX() {
+//        return x;
+//    }
+//
+//    @Override
+//    public int getPosY() {
+//        return y;
+//    }
 }
