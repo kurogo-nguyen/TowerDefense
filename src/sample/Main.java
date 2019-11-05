@@ -1,25 +1,22 @@
 package sample;//package sample;
 
+import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import sample.Enemy.NormalEnemy;
 import sample.Field.GameField;
-import sample.Tower.NormalTower;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage stage) {
         // Tao Canvas
-        Canvas canvas = new Canvas(130 * 10, 61 * 14);
+        Canvas canvas = new Canvas(64 * 10, 64 * 7);
         GraphicsContext gc = canvas.getGraphicsContext2D();
-        GameField.drawMap(gc);
-        NormalEnemy.drawTank(gc);
 
         // Tao root container
         Group root = new Group();
@@ -33,6 +30,16 @@ public class Main extends Application {
         stage.setScene(scene);
         stage.show();
 
+        AnimationTimer timer = new AnimationTimer() {
+            @Override
+            public void handle(long l) {
+                GameField.render(gc);
+                GameField.update();
+            }
+        };
+        timer.start();
+
+        GameField.entities.add(NormalEnemy.createNormalEnemy());
     }
 
 

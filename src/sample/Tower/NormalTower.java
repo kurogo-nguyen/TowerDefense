@@ -4,7 +4,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
-public class NormalTower implements Tower, Bullet {
+public class NormalTower {
     private final int rateOfFire = 10;
     private final int damage = 50;
     private final int shootingRange = 10;
