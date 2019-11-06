@@ -42,11 +42,11 @@ public class Main extends Application {
         vBox.setPadding(new Insets(100, 200, 200, 200));// top, right, bottom, left
         vBox.getChildren().addAll(play,quit);
 
-        scene1=new Scene(vBox, 666,500);
+        scene1=new Scene(vBox, 64*10,64*7);
 
         //Play Game
         // Tao Canvas
-        Canvas canvas = new Canvas(64 * 10, 64 * 7);
+        Canvas canvas = new Canvas(88 * 15, 66 * 10);
         GraphicsContext gc = canvas.getGraphicsContext2D();
 
 //        //tao am thanh
@@ -63,7 +63,7 @@ public class Main extends Application {
 
         // Them scene vao stage
         stage.setTitle("Tower Defense");
-        stage.setScene(scene1);
+        stage.setScene(scene2);
         stage.show();
 
         AnimationTimer timer = new AnimationTimer() {
@@ -71,11 +71,11 @@ public class Main extends Application {
             public void handle(long l) {
                 GameField.render(gc);
                 GameField.update();
+//                if (GameField.entities.size()<=5)
+//                    GameField.entities.add(NormalEnemy.createNormalEnemy());
             }
         };
         timer.start();
-
-        GameField.entities.add(NormalEnemy.createNormalEnemy());
     }
 
 

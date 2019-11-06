@@ -11,15 +11,7 @@ import sample.GameEntity;
 
 import static sample.Field.GameField.wayPoints;
 
-public class NormalEnemy implements Enemy, GameEntity {
-    int i, j;
-    int x;
-    int y;
-    Image img;
-
-    double speed;
-    Direction direction;
-    Image gunImg;
+public class NormalEnemy extends EnemyObj implements Enemy, GameEntity {
 
     public static NormalEnemy createNormalEnemy() {
         NormalEnemy tank = new NormalEnemy();

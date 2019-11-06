@@ -4,6 +4,7 @@ import javafx.scene.canvas.GraphicsContext;
 import sample.GameEntity;
 
 public interface Enemy extends GameEntity {
+
     enum Direction {
         LEFT(180), UP(270), RIGHT(0), DOWN(90);
 
@@ -21,8 +22,4 @@ public interface Enemy extends GameEntity {
     void render(GraphicsContext gc);
 
     void update();
-//    int heath;
-//    int moveSpeed;
-//    int armor;
-//    void move();
 }
