@@ -9,20 +9,20 @@ import sample.Field.GameField;
 import sample.Field.Point;
 import sample.GameEntity;
 
-import static sample.Field.GameField.wayPoints;
+import static sample.Field.GameField.*;
 
 public class NormalEnemy extends EnemyObj implements Enemy, GameEntity {
 
     public static NormalEnemy createNormalEnemy() {
         NormalEnemy tank = new NormalEnemy();
-        tank.i = 0;
-        tank.j = 6;
-        tank.x = tank.i * 64 + 32;
-        tank.y = tank.j * 64;
-        tank.speed = 5;
+        tank.i = 9;
+        tank.j = 1;
+        tank.x = getPosX(tank.i, tank.j);
+        tank.y = getPosY(tank.i, tank.j);
+        tank.speed = 6;
         tank.direction = Direction.UP;
-        tank.img = new Image("file:resources/AssetsKit_2/PNG/Retina/towerDefense_tile268.png");
-        tank.gunImg = new Image("file:resources/AssetsKit_2/PNG/Retina/towerDefense_tile291.png");
+        tank.img = new Image("file:resources/AssetsKit_3/Isometric/enemy_ufoYellowWeapon_E.png");
+//        tank.gunImg = new Image("file:resources/AssetsKit_2/PNG/Retina/towerDefense_tile291.png");
         return tank;
     }
 
@@ -42,12 +42,7 @@ public class NormalEnemy extends EnemyObj implements Enemy, GameEntity {
         iv.setRotate(this.direction.getDegree());
         Image base = iv.snapshot(params, null);
 
-        ImageView iv2 = new ImageView(gunImg);
-        iv2.setRotate(this.direction.getDegree());
-        Image gun = iv2.snapshot(params, null);
-
-        gc.drawImage(base, x, y, 64,64);
-        gc.drawImage(gun, x, y,64,64);
+        gc.drawImage(base, x, y-30, 90 , 90);
 
         gc.setFill(Color.RED);
         gc.fillOval(GameField.wayPoints[wayPointIndex].x,GameField.wayPoints[wayPointIndex].y,10, 10);
@@ -71,10 +66,10 @@ public class NormalEnemy extends EnemyObj implements Enemy, GameEntity {
             if (nextWayPoint == null) return;
             double deltaX = nextWayPoint.x - x;
             double deltaY = nextWayPoint.y - y;
-            if (deltaX > speed) direction = Direction.RIGHT;
-            else if (deltaX < -speed) direction = Direction.LEFT;
-            else if (deltaY > speed) direction = Direction.DOWN;
-            else if (deltaY <= -speed) direction = Direction.UP;
+            if (deltaX > speed && deltaY > speed/2) direction = Direction.RIGHT;
+            else if (deltaX < -speed && deltaY < -speed/2) direction = Direction.LEFT;
+            else if (deltaX < -speed && deltaY > speed/2) direction = Direction.DOWN;
+            else if (deltaX > speed && deltaY <= -speed) direction = Direction.UP;
         }
     }
 
@@ -85,15 +80,19 @@ public class NormalEnemy extends EnemyObj implements Enemy, GameEntity {
 
         switch (direction) {
             case UP:
-                y -= speed;
+                y -= speed/2;
+                x += speed;
                 break;
             case DOWN:
-                y += speed;
+                y += speed/2;
+                x -= speed;
                 break;
             case LEFT:
+                y -= speed/2;
                 x -= speed;
                 break;
             case RIGHT:
+                y += speed/2;
                 x += speed;
                 break;
         }

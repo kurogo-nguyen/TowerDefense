@@ -76,6 +76,8 @@ public class Main extends Application {
             }
         };
         timer.start();
+
+        GameField.entities.add(NormalEnemy.createNormalEnemy());
     }
 
 

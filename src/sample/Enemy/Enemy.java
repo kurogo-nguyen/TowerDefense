@@ -6,7 +6,7 @@ import sample.GameEntity;
 public interface Enemy extends GameEntity {
 
     enum Direction {
-        LEFT(180), UP(270), RIGHT(0), DOWN(90);
+        LEFT(0), UP(0), RIGHT(0), DOWN(0);
 
         int degree;
 
