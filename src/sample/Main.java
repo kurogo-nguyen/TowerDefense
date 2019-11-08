@@ -16,6 +16,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import sample.Enemy.NormalEnemy;
 import sample.Field.GameField;
+import sample.Field.GameStage;
 
 import java.io.File;
 
@@ -59,7 +60,7 @@ public class Main extends Application {
         root.getChildren().add(canvas);
 
         // Tao scene
-        scene2 = new Scene(root);
+        scene2 = new Scene(root, GameStage.screenWidth, GameStage.screenHeight);
 
         // Them scene vao stage
         stage.setTitle("Tower Defense");

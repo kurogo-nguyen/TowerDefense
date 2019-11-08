@@ -13,20 +13,22 @@ import static sample.Field.GameField.*;
 
 public class NormalEnemy extends EnemyObj implements Enemy, GameEntity {
 
+    //tao enemy
     public static NormalEnemy createNormalEnemy() {
         NormalEnemy tank = new NormalEnemy();
         tank.i = 9;
         tank.j = 1;
         tank.x = getPosX(tank.i, tank.j);
         tank.y = getPosY(tank.i, tank.j);
-        tank.speed = 6;
+        tank.speed = 2;
         tank.direction = Direction.UP;
         tank.img = new Image("file:resources/AssetsKit_3/Isometric/enemy_ufoYellowWeapon_E.png");
-//        tank.gunImg = new Image("file:resources/AssetsKit_2/PNG/Retina/towerDefense_tile291.png");
         return tank;
     }
 
     int wayPointIndex = 0;
+
+    //lay diem dinh huong tiep theo
     public Point getNextWayPoint() {
         if (wayPointIndex < wayPoints.length - 1)
             return GameField.wayPoints[++wayPointIndex];
@@ -39,7 +41,6 @@ public class NormalEnemy extends EnemyObj implements Enemy, GameEntity {
         params.setFill(Color.TRANSPARENT);
 
         ImageView iv = new ImageView(img);
-        iv.setRotate(this.direction.getDegree());
         Image base = iv.snapshot(params, null);
 
         gc.drawImage(base, x, y-30, 90 , 90);
